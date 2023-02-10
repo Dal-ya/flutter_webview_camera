@@ -35,7 +35,8 @@ class InAppWebViewPage extends StatefulWidget {
 }
 
 class _InAppWebViewPageState extends State<InAppWebViewPage> {
-  InAppWebViewController? _webViewController;
+  InAppWebViewController? _webViewController; // webview를 만들때 68줄에서 추가해줌
+
   void handleWebView() async {
     print(await Permission.camera.request());
 
@@ -54,13 +55,11 @@ class _InAppWebViewPageState extends State<InAppWebViewPage> {
           children: <Widget>[
             ElevatedButton(
               onPressed: handleWebView,
-              child: const Text("dd"),
+              child: const Text("Handle WebView"),
             ),
             Expanded(
               child: InAppWebView(
-                initialUrlRequest: URLRequest(
-                    url: Uri.parse(
-                        "https://helloworld-0001.s3.us-east-2.amazonaws.com/index.html")),
+                initialUrlRequest: URLRequest(url: Uri.parse("link")),
                 initialOptions: InAppWebViewGroupOptions(
                   crossPlatform: InAppWebViewOptions(
                     mediaPlaybackRequiresUserGesture: false,
